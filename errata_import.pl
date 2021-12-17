@@ -33,9 +33,6 @@ import XML::Parser;
 my $version = "20170130";
 
 # Constants
-use constant ADMIN_CERT => "$ENV{HOME}/.pulp/user-cert.pem";
-use constant ADMIN_CONF => "$ENV{HOME}/.pulp/admin.conf";
-
 use constant ADMIN_CERT_PEM => "$ENV{HOME}/.pulp/cert.pem";
 use constant ADMIN_PRIV_PEM => "$ENV{HOME}/.pulp/priv.pem";
 
@@ -84,12 +81,6 @@ if (not(defined($host))) {
 # Do we have a proper errata file?
 if (not(-f $erratafile)) {
   &error("$erratafile is not an errata file!\n");
-  exit 1;
-}
-
-# otherwise make sure ~pulp/admin.conf or user-cert.pem exist
-if (not(-f ADMIN_CERT || -f ADMIN_CONF)) {
-  &error("Please create ".ADMIN_CERT." and/or ".ADMIN_CONF.".  See README.md\n");
   exit 1;
 }
 
