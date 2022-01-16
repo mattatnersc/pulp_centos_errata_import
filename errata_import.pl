@@ -286,7 +286,7 @@ foreach $advisory (sort(keys(%{$xml}))) {
 		#'sum_type'          => $pkgdetails[6],
 		'version'           => ''.$pkgdetails[1],
 	);
-        push $advisory_data{'pkglist'}[0]{'packages'}, \%packagehash;
+        push @{ $advisory_data{'pkglist'}[0]{'packages'} }, \%packagehash;
       }
       #################################
 
